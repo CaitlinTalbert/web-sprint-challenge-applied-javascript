@@ -1,4 +1,33 @@
-const Header = (title, date, temp) => {
+//const Header = (title, date, temp) => {
+const header = [
+  {
+    'title:',   
+    'date:',  
+    'temp:', 
+  }
+];
+
+function headerMaker (headerInfo) {
+
+const headerDiv = document.createElement('div'); 
+const date = document.createElement('span'); 
+const title = document.createElement('h1'); 
+const temp = document.createElement('span'); 
+
+headerDiv.appendChild(date); 
+headerDiv.appendChild(title); 
+headerDiv.appendChild(temp); 
+
+date.textContent = headerInfo.date; 
+title.textContent = headerInfo.title; 
+temp.textContent = headerInfo.temp; 
+
+
+return header; 
+}; 
+console.log(headerMaker(header)); 
+document.querySelector('.header-container').appendChild(headerMaker(header)); 
+
   // TASK 1
   // ---------------------
   // Implement this function taking `title`, `date` and `temp` as its 3 args and returning the markup below.
@@ -11,7 +40,8 @@ const Header = (title, date, temp) => {
   //    <span class="temp">{ temp }</span>
   //  </div>
   //
-}
+
+
 
 const headerAppender = (selector) => {
   // TASK 2
