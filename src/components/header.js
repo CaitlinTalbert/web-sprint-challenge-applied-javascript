@@ -44,6 +44,8 @@ document.querySelector('.header-container').appendChild(headerMaker(header));
 
 
 const headerAppender = (selector) => {
+console.log(selector)
+
   // TASK 2
   // ---------------------
   // Implement this function taking a css selector as its only argument.
