@@ -19,6 +19,13 @@ const Card = (article) => {
     imgContainer.appendChild(authorPhoto); 
     imgContainer.appendChild(authorName); 
     
+    const cardBtn = document.querySelector('.header-container'); 
+
+    cardBtn.addEventListener('click', () => {
+      card.classList.toggle('headline--open'); 
+    })
+
+
     return card; 
 
   // TASK 5
