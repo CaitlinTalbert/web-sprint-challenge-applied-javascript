@@ -11,7 +11,7 @@ const Card = (article) => {
 
   //structure
   cardDiv.appendChild(headlineDiv);
-  cardDiv.appendChild(authorNameElem);
+  cardDiv.appendChild(authorDiv);
   authorDiv.appendChild(imgContainerDiv);
   authorDiv.appendChild(authorNameElem);
   imgContainerDiv.appendChild(authorPhotoElem);
@@ -24,7 +24,7 @@ const Card = (article) => {
   cardDiv.classList.add("card");
   headlineDiv.classList.add("headline");
   authorDiv.classList.add("author");
-  imgContainerDiv.classList.add("imgContainer");
+  imgContainerDiv.classList.add("img-container");
 
   cardDiv.addEventListener("click", () => {
     console.log(headlineDiv.textContent);
@@ -56,8 +56,22 @@ const cardAppender = (selector) => {
   axios
     .get(`http://localhost:5000/api/articles`)
     .then((resp) => {
-      console.log(resp.data.topics);
-      document.querySelector(selector).appendChild(Card(resp.data.topics));
+      console.log(resp.data.articles.bootstrap);
+      resp.data.articles.bootstrap.forEach((el) => {
+        document.querySelector(selector).appendChild(Card(el));
+      });
+      resp.data.articles.javascript.forEach((el) => {
+        document.querySelector(selector).appendChild(Card(el));
+      });
+      resp.data.articles.technology.forEach((el) => {
+        document.querySelector(selector).appendChild(Card(el));
+      });
+      resp.data.articles.jquery.forEach((el) => {
+        document.querySelector(selector).appendChild(Card(el));
+      });
+      resp.data.articles.node.forEach((el) => {
+        document.querySelector(selector).appendChild(Card(el));
+      });
     })
     .catch((error) => {
       console.error(error);
